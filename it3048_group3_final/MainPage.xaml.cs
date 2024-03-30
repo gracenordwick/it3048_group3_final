@@ -13,6 +13,7 @@ namespace it3048_group3_final
         public MainPage()
         {
             InitializeComponent();
+            //test - noah
         }
     }
 }
