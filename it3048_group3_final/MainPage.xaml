@@ -35,6 +35,7 @@
                 <!-- Add more content here if needed -->
             </StackLayout>
         </Frame>
+<<<<<<< HEAD
 
 
         <Frame x:Name="DailyTaskFrame" RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=0.8}"
@@ -69,5 +70,20 @@
     
 
     </RelativeLayout>
+=======
+        <Label Text="Start developing now" FontSize="Title" Padding="30,10,30,10"/>
+        <Label Text="Hello" FontSize="16" Padding="30,0,30,0"/>
+        <Label FontSize="16" Padding="30,24,30,0">
+            <Label.FormattedText>
+                <FormattedString>
+                    <FormattedString.Spans>
+                        <Span Text="Learn more at "/>
+                        <Span Text="https://aka.ms/xamarin-quickstart" FontAttributes="Bold"/>
+                    </FormattedString.Spans>
+                </FormattedString>
+            </Label.FormattedText>
+        </Label>
+    </StackLayout>
+>>>>>>> aa5c066e6f8fa0c1e4edb880152651c2e19d11ee
 
 </ContentPage>
