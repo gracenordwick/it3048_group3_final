@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "it3048_group3_final.Android
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "it3048_group3_final.iOS", "it3048_group3_final.iOS\it3048_group3_final.iOS.csproj", "{4E48D4AE-8C0E-4C30-98FC-3725C65AE2C4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "it3048_group3_final", "it3048_group3_final\it3048_group3_final.csproj", "{1B1B730B-0BC4-4614-BCB2-3F8F24E8DE40}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "it3048_group3_final", "it3048_group3_final\it3048_group3_final.csproj", "{1B1B730B-0BC4-4614-BCB2-3F8F24E8DE40}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

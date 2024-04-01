@@ -12,7 +12,27 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Data files\**" />
+    <Compile Remove="View files\**" />
+    <EmbeddedResource Remove="Data files\**" />
+    <EmbeddedResource Remove="View files\**" />
+    <None Remove="Data files\**" />
+    <None Remove="View files\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Xamarin.Forms" Version="5.0.0.2196" />
     <PackageReference Include="Xamarin.Essentials" Version="1.7.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Data\" />
+    <Folder Include="Models\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Views\CalendarView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
   </ItemGroup>
 </Project>
