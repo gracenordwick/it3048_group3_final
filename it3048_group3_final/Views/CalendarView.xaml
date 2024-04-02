@@ -1,6 +1,72 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+              BackgroundColor="LightGray"
              x:Class="it3048_group3_final.Views.CalendarView">
+
+
+
+    <RelativeLayout>
+        <!-- Month Label -->
+        <Label Text="April 2024" 
+             FontSize="Large" 
+             FontAttributes="Bold" 
+             HorizontalOptions="Center" 
+             RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width}" 
+             RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0.1}"/>
+
+        <!-- Box in the middle -->
+        <Frame x:Name="DateFrame" RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=0.8}"
+             RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0.2}"
+             RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=0.1}"
+             RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0.25}"
+             BackgroundColor="White">
+            <StackLayout HorizontalOptions="CenterAndExpand">
+                <!-- Dates -->
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="1" HorizontalTextAlignment="Center"/>
+                    <Label Text="2" HorizontalTextAlignment="Center"/>
+                    <Label Text="3" HorizontalTextAlignment="Center"/>
+                    <Label Text="4" HorizontalTextAlignment="Center"/>
+                    <Label Text="5" HorizontalTextAlignment="Center"/>
+                    <Label Text="6" HorizontalTextAlignment="Center"/>
+                    <Label Text="7" HorizontalTextAlignment="Center"/>
+                    <!-- Add more date labels as needed -->
+                </StackLayout>
+                <!-- Add more content here if needed -->
+            </StackLayout>
+        </Frame>
+
+
+        <Frame x:Name="DailyTaskFrame" RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=0.8}"
+      RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0.35}"
+      RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=0.1}"
+      RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0.55}"
+      BackgroundColor="White">
+
+           
+
+
+            <StackLayout>
+                <!-- List of Tasks -->
+                <ListView x:Name="taskListView">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <TextCell Text="{Binding .}" />
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+
+                <!-- Entry and Button to Add Task -->
+                <StackLayout Orientation="Horizontal">
+
+                    <Button Text="Add Task" HorizontalOptions="CenterAndExpand"/>
+                </StackLayout>
+            </StackLayout>
+        </Frame>
+
+    </RelativeLayout>
+
+
 
 </ContentPage>
