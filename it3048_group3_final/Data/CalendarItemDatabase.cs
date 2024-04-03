@@ -10,7 +10,7 @@ namespace it3048_group3_final.Data
 {
     internal class CalendarItemDatabase
     {
-        private readonly SQLiteAsyncConnection _database;
+        public readonly SQLiteAsyncConnection _database;
         public CalendarItemDatabase(String dbpath)
         {
             _database = new SQLiteAsyncConnection(dbpath);
