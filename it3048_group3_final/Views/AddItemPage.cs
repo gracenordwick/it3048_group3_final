@@ -6,5 +6,6 @@ namespace it3048_group3_final.Views
 {
     class AddItemPage
     {
+
     }
 }

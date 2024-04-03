@@ -8,34 +8,15 @@
 
     <RelativeLayout>
         <!-- Month Label -->
-        <Label Text="April 2024" 
-             FontSize="Large" 
+        <DatePicker x:Name="myDatePicker"
+            FontSize="Large" 
              FontAttributes="Bold" 
              HorizontalOptions="Center" 
              RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width}" 
              RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0.1}"/>
 
         <!-- Box in the middle -->
-        <Frame x:Name="DateFrame" RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=0.8}"
-             RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0.2}"
-             RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=0.1}"
-             RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0.25}"
-             BackgroundColor="White">
-            <StackLayout HorizontalOptions="CenterAndExpand">
-                <!-- Dates -->
-                <StackLayout Orientation="Horizontal">
-                    <Label Text="1" HorizontalTextAlignment="Center"/>
-                    <Label Text="2" HorizontalTextAlignment="Center"/>
-                    <Label Text="3" HorizontalTextAlignment="Center"/>
-                    <Label Text="4" HorizontalTextAlignment="Center"/>
-                    <Label Text="5" HorizontalTextAlignment="Center"/>
-                    <Label Text="6" HorizontalTextAlignment="Center"/>
-                    <Label Text="7" HorizontalTextAlignment="Center"/>
-                    <!-- Add more date labels as needed -->
-                </StackLayout>
-                <!-- Add more content here if needed -->
-            </StackLayout>
-        </Frame>
+        
 
 
         <Frame x:Name="DailyTaskFrame" RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=0.8}"
@@ -52,7 +33,7 @@
                 <ListView x:Name="taskListView">
                     <ListView.ItemTemplate>
                         <DataTemplate>
-                            <TextCell Text="{Binding .}" />
+                            <TextCell Text="{Binding }" />
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>
