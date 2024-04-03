@@ -5,7 +5,7 @@ using SQLite;
 
 namespace it3048_group3_final.Models
 {
-    internal class CalendarItem
+    public class CalendarItem
     {
         [PrimaryKey, AutoIncrement]
         public int ID { get; set; }
