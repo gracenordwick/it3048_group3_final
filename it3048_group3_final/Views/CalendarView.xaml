@@ -11,7 +11,7 @@
         <DatePicker x:Name="myDatePicker"
             FontSize="Large" 
              FontAttributes="Bold" 
-             HorizontalOptions="Center" 
+             HorizontalOptions="CenterAndExpand" 
              RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width}" 
              RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0.1}"/>
 
