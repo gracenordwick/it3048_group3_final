@@ -7,6 +7,8 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
+using it3048_group3_final.Models;
+
 namespace it3048_group3_final.Views
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
