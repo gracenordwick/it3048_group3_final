@@ -8,10 +8,10 @@
 
     <RelativeLayout>
         <!-- Month Label -->
-        <Label Text="April 2024" 
+        <DatePicker 
              FontSize="Large" 
              FontAttributes="Bold" 
-             HorizontalOptions="Center" 
+             HorizontalOptions="CenterAndExpand" 
              RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width}" 
              RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0.1}"/>
 
@@ -52,7 +52,7 @@
                 <ListView x:Name="taskListView">
                     <ListView.ItemTemplate>
                         <DataTemplate>
-                            <TextCell Text="{Binding .}" />
+                            <TextCell Text="{Binding CalendarItem}" />
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>
@@ -60,7 +60,7 @@
                 <!-- Entry and Button to Add Task -->
                 <StackLayout Orientation="Horizontal">
 
-                    <Button Text="Add Task" HorizontalOptions="CenterAndExpand"/>
+                    <Button Text="Add Task" HorizontalOptions="CenterAndExpand" Clicked="Button_Clicked"/>
                 </StackLayout>
             </StackLayout>
         </Frame>

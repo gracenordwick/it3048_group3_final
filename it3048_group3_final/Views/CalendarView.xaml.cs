@@ -21,7 +21,9 @@ namespace it3048_group3_final.Views
 			InitializeComponent();
 		}
 
-		
-
-	}
+        private async void Button_Clicked(object sender, EventArgs e)
+        {
+			await Navigation.PushAsync(new AddItemPage());
+        }
+    }
 }

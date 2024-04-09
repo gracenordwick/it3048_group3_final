@@ -14,19 +14,12 @@ namespace it3048_group3_final.Data
         public CalendarItemDatabase(String dbpath)
         {
             _database = new SQLiteAsyncConnection(dbpath);
-            _database.CreateTableAsync<CalendarItem>();
+            _database.CreateTableAsync<CalendarItem>().Wait();
         }
 
         public Task<List<CalendarItem>> GetItemsAsync()
         {
             return _database.Table<CalendarItem>().ToListAsync();
-        }
-
-
-        //idk if we need this
-        public Task<List<CalendarItem>> GetItemsNotDoneAsync()
-        {
-            return _database.QueryAsync<CalendarItem>("SELECT * FROM [CalendarItem] WHERE [Done] = 0");
         }
 
         public Task<CalendarItem> GetItemAsync(int id)
@@ -36,7 +29,7 @@ namespace it3048_group3_final.Data
 
         public Task<int> SaveItemsAsync(CalendarItem item) 
         { 
-            if (item.ID !=0)
+            if (item.ID != 0)
             {
                 return _database.UpdateAsync(item);
             }
