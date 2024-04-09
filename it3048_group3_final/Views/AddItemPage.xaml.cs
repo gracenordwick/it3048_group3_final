@@ -16,5 +16,21 @@ namespace it3048_group3_final.Views
 		{
 			InitializeComponent ();
 		}
-	}
+        async void onSaveClicked()
+        {
+            var calendarItem = (CalendarItem)BindingContext;
+            await App.Database.SaveItemsAsync(calendarItem);
+            await Navigation.PopAsync();
+        }
+        async void onDeleteClicked()
+        {
+            var calendarItem = (CalendarItem)BindingContext;
+            await App.Database.DeleteItemsAsync(calendarItem);
+            await Navigation.PopAsync();
+        }
+        async void onCancelClicked()
+        {
+            await Navigation.PopAsync();
+        }
+    }
 }
