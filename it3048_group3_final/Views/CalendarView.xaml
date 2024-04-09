@@ -8,7 +8,7 @@
 
     <RelativeLayout>
         <!-- Month Label -->
-        <DatePicker x:Name="myDatePicker"
+        <DatePicker x:Name="myDatePicker" 
             FontSize="Large" 
              FontAttributes="Bold" 
              HorizontalOptions="CenterAndExpand" 
