@@ -1,4 +1,5 @@
-﻿using System;
+﻿using it3048_group3_final.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,19 +17,19 @@ namespace it3048_group3_final.Views
 		{
 			InitializeComponent ();
 		}
-        async void onSaveClicked()
+        async void OnSaveClicked()
         {
             var calendarItem = (CalendarItem)BindingContext;
             await App.Database.SaveItemsAsync(calendarItem);
             await Navigation.PopAsync();
         }
-        async void onDeleteClicked()
+        async void OnDeleteClicked()
         {
             var calendarItem = (CalendarItem)BindingContext;
             await App.Database.DeleteItemsAsync(calendarItem);
             await Navigation.PopAsync();
         }
-        async void onCancelClicked()
+        async void OnCancelClicked()
         {
             await Navigation.PopAsync();
         }
