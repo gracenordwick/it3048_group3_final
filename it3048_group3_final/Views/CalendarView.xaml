@@ -4,14 +4,12 @@
               BackgroundColor="LightGray"
              x:Class="it3048_group3_final.Views.CalendarView">
 
-
-
     <RelativeLayout>
         <!-- Month Label -->
         <Label Text="April 2024" 
              FontSize="Large" 
              FontAttributes="Bold" 
-             HorizontalOptions="Center" 
+             HorizontalOptions="CenterAndExpand"  
              RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width}" 
              RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0.1}"/>
 
@@ -30,15 +28,6 @@
                    
                     <Button Text="◀" Clicked="PreviousMonthClicked" />
                     <Button Text="▶" Clicked="NextMonthClicked" />
-                    
-                    <!--<Label Text="1" HorizontalTextAlignment="Center"/>
-                    <Label Text="2" HorizontalTextAlignment="Center"/>
-                    <Label Text="3" HorizontalTextAlignment="Center"/>
-                    <Label Text="4" HorizontalTextAlignment="Center"/>
-                    <Label Text="5" HorizontalTextAlignment="Center"/>
-                    <Label Text="6" HorizontalTextAlignment="Center"/>
-                    <Label Text="7" HorizontalTextAlignment="Center"/>-->
-                    <!-- Add more date labels as needed -->
                 </StackLayout>
                 <!-- Add more content here if needed -->
             </StackLayout>
