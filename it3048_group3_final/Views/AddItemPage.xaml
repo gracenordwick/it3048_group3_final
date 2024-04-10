@@ -8,7 +8,7 @@
             <DatePicker x:Name="datePicker" />
             <Label Text="Title" />
             <Entry Placeholder="Enter title" x:Name="titleEntry" />
-            <Label Text="Time" />
+            <Label x:Name="eventTime" Text="Time" />
             <TimePicker x:Name="timePicker" />
             <Button Text="Add" Clicked="OnAddClicked" />
         </StackLayout>
