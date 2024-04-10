@@ -39,15 +39,10 @@ namespace it3048_group3_final.Views
 			BindingContext = this;
 		}
 
-		private void PreviousMonthClicked(object sender, EventArgs e)
-		{
-			CurrentDate = CurrentDate.AddMonths(-1);
-		}
-		
-		private void NextMonthClicked(object sender, EventArgs e) 
-		{ 
-			CurrentDate = CurrentDate.AddMonths(1);
-		}
+        private async void OnAddTaskClicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new AddItemPage());
+        }
 
-	}
+    }
 }

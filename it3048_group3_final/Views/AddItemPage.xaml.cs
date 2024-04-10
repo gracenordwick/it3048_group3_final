@@ -11,26 +11,28 @@ using it3048_group3_final.Models;
 
 namespace it3048_group3_final.Views
 {
-	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class AddItemPage : ContentPage
-	{
-		public AddItemPage ()
-		{
-			InitializeComponent ();
-		}
-        async void onSaveClicked()
+    public partial class AddItemPage : ContentPage
+    {
+        public AddItemPage()
+        {
+            InitializeComponent();
+        }
+
+        async void OnSaveClicked(object sender, EventArgs e)
         {
             var calendarItem = (CalendarItem)BindingContext;
-            await App.Database.SaveItemsAsync(calendarItem);
+            await App.Database.SaveItemAsync(calendarItem);
             await Navigation.PopAsync();
         }
-        async void onDeleteClicked()
+
+        async void OnDeleteClicked(object sender, EventArgs e)
         {
             var calendarItem = (CalendarItem)BindingContext;
-            await App.Database.DeleteItemsAsync(calendarItem);
+            await App.Database.DeleteItemAsync(calendarItem);
             await Navigation.PopAsync();
         }
-        async void onCancelClicked()
+
+        async void OnCancelClicked(object sender, EventArgs e)
         {
             await Navigation.PopAsync();
         }

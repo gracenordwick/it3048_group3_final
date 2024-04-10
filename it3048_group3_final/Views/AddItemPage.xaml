@@ -5,8 +5,8 @@
     <ContentPage.Content>
         <StackLayout>
             <Label Text="{Binding InputText}" />
-            <Button Text="Edit" Command="{Binding BindingContext.EditCommand, Source={x:Reference Name=addPage}}" CommandParameter="{Binding}" />
-            <Button Text="Delete" Command="{Binding BindingContext.DeleteCommand, Source={x:Reference Name=addPage}}" CommandParameter="{Binding}" />
+            <Button Text="Edit" Command="{Binding EditCommand}" CommandParameter="{Binding}" />
+            <Button Text="Delete" Command="{Binding DeleteCommand}" CommandParameter="{Binding}" />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

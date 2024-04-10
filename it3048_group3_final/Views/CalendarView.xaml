@@ -21,7 +21,7 @@
       RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0.7}"
       RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=0.1}"
       RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0.2}"
-      BackgroundColor="White">
+      BackgroundColor="AntiqueWhite">
 
            
 
@@ -39,7 +39,7 @@
                 <!-- Entry and Button to Add Task -->
                 <StackLayout Orientation="Horizontal">
 
-                    <Button Text="Add Task" HorizontalOptions="CenterAndExpand"/>
+                    <Button Text="Add Task" Clicked="OnAddTaskClicked" HorizontalOptions="CenterAndExpand"/>
                 </StackLayout>
             </StackLayout>
         </Frame>

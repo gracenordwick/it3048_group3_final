@@ -1,20 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using SQLite;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
+using SQLite;
 using it3048_group3_final.Models;
-
 
 namespace it3048_group3_final.Data
 {
-    internal class CalendarItemDatabase
+    public class CalendarItemDatabase
     {
-        public readonly SQLiteAsyncConnection _database;
-        public CalendarItemDatabase(String dbpath)
+        readonly SQLiteAsyncConnection _database;
+
+        public CalendarItemDatabase(string dbPath)
         {
-            _database = new SQLiteAsyncConnection(dbpath);
-            _database.CreateTableAsync<CalendarItem>();
+            _database = new SQLiteAsyncConnection(dbPath);
+            _database.CreateTableAsync<CalendarItem>().Wait(); // Make sure the table is created synchronously
         }
 
         public Task<List<CalendarItem>> GetItemsAsync()
@@ -22,35 +20,22 @@ namespace it3048_group3_final.Data
             return _database.Table<CalendarItem>().ToListAsync();
         }
 
-
-        //idk if we need this
-        public Task<List<CalendarItem>> GetItemsNotDoneAsync()
+        public Task<int> SaveItemAsync(CalendarItem item)
         {
-            return _database.QueryAsync<CalendarItem>("SELECT * FROM [CalendarItem] WHERE [Done] = 0");
-        }
-
-        public Task<CalendarItem> GetItemAsync(int id)
-        {
-            return _database.Table<CalendarItem>().Where(i => i.ID == id).FirstOrDefaultAsync();
-        }
-
-        public Task<int> SaveItemsAsync(CalendarItem item) 
-        { 
-            if (item.ID !=0)
+            if (item.ID != 0)
             {
                 return _database.UpdateAsync(item);
             }
-            else 
+            else
             {
                 return _database.InsertAsync(item);
             }
         }
 
-        public Task<int> DeleteItemsAsync(CalendarItem item)
+        public Task<int> DeleteItemAsync(CalendarItem item)
         {
             return _database.DeleteAsync(item);
         }
-
-
     }
 }
+
