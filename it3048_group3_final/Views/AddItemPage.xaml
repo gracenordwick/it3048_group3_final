@@ -4,9 +4,13 @@
              x:Class="it3048_group3_final.Views.AddItemPage">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="{Binding InputText}" />
-            <Button Text="Edit" Command="{Binding EditCommand}" CommandParameter="{Binding}" />
-            <Button Text="Delete" Command="{Binding DeleteCommand}" CommandParameter="{Binding}" />
+            <Label Text="Date" />
+            <DatePicker x:Name="datePicker" />
+            <Label Text="Title" />
+            <Entry Placeholder="Enter title" x:Name="titleEntry" />
+            <Label Text="Time" />
+            <TimePicker x:Name="timePicker" />
+            <Button Text="Add" Clicked="OnAddClicked" />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

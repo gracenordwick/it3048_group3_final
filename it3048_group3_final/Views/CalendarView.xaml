@@ -21,17 +21,22 @@
       RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0.7}"
       RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=0.1}"
       RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0.2}"
-      BackgroundColor="AntiqueWhite">
+      BackgroundColor="AliceBlue">
 
            
 
 
             <StackLayout>
                 <!-- List of Tasks -->
-                <ListView x:Name="taskListView">
+                <ListView ItemsSource="{Binding CalendarItems}" SeparatorVisibility="None">
                     <ListView.ItemTemplate>
                         <DataTemplate>
-                            <TextCell Text="{Binding }" />
+                            <ViewCell>
+                                <StackLayout Padding="10">
+                                    <Label Text="{Binding Title}" FontSize="18" />
+                                    <Label Text="{Binding Time, StringFormat='{0:hh:mm tt}'}" FontSize="14" />
+                                </StackLayout>
+                            </ViewCell>
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>
