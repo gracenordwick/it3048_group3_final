@@ -28,7 +28,7 @@
 
             <StackLayout>
                 <!-- List of Tasks -->
-                <ListView ItemsSource="{Binding CalendarItems}" SeparatorVisibility="None">
+                <ListView x:Name="itemsList" ItemsSource="{Binding CalendarItems}" SeparatorVisibility="None">
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell>
@@ -45,6 +45,7 @@
                 <StackLayout Orientation="Horizontal">
 
                     <Button Text="Add Task" Clicked="OnAddTaskClicked" HorizontalOptions="CenterAndExpand"/>
+                    <Button Text="Delete Task" Clicked="OnDeleteTaskClicked" HorizontalOptions="CenterAndExpand"/>
                 </StackLayout>
             </StackLayout>
         </Frame>

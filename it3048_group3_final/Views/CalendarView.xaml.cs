@@ -12,6 +12,7 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using System.ComponentModel;
 using System.Collections.ObjectModel;
+using Xamarin.Forms.Internals;
 
 namespace it3048_group3_final.Views
 {
@@ -60,10 +61,29 @@ namespace it3048_group3_final.Views
             }
         }
 
+        private CalendarItem GetSelectedTask()
+        {
+            if (itemsList.SelectedItem is CalendarItem calendarItem)
+            {
+                return calendarItem;
+            }
+            else
+            {
+                return null; // No task selected
+            }
+        }
+
         private async void OnAddTaskClicked(object sender, EventArgs e)
         {
             // Navigate to the AddItemPage
             await Navigation.PushAsync(new AddItemPage());
+        }
+
+        private async void OnDeleteTaskClicked(object sender, EventArgs e) 
+        {
+            CalendarItem calendarItem = GetSelectedTask();
+            await App.Database.DeleteItemAsync(calendarItem);
+            LoadItems();
         }
 
         protected override void OnAppearing()
