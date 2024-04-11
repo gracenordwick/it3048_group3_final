@@ -46,12 +46,6 @@ namespace it3048_group3_final.Views
             await Navigation.PopAsync();
         }
 
-        /*async void OnDeleteClicked(object sender, EventArgs e)
-        {
-            var calendarItem = (CalendarItem)BindingContext;
-            await App.Database.DeleteItemAsync(calendarItem);
-            await Navigation.PopAsync();
-        }*/
 
         async void OnCancelClicked(object sender, EventArgs e)
         {

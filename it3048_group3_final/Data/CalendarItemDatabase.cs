@@ -2,6 +2,7 @@
 using System.Threading.Tasks;
 using SQLite;
 using it3048_group3_final.Models;
+using System;
 
 namespace it3048_group3_final.Data
 {
@@ -32,10 +33,22 @@ namespace it3048_group3_final.Data
             }
         }
 
-        public Task<int> DeleteItemAsync(CalendarItem item)
+        public async Task<int> DeleteItemAsync(CalendarItem item)
         {
-            return _database.DeleteAsync(item);
+            try
+            {
+                Console.WriteLine("Deleting item: " + item.ID);
+                int rowsDeleted = await _database.DeleteAsync(item);
+                Console.WriteLine("Rows deleted: " + rowsDeleted);
+                return rowsDeleted;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error deleting item: " + ex.Message);
+                return 0; // Return 0 to indicate failure
+            }
         }
+
     }
 }
 

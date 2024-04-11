@@ -21,6 +21,7 @@ namespace it3048_group3_final.Views
 	{
         public ObservableCollection<CalendarItem> CalendarItems { get; set; }
 
+
         private DateTime _currentDate;
 
 		public DateTime CurrentDate 
@@ -44,32 +45,46 @@ namespace it3048_group3_final.Views
             LoadItems();
         }
 
-        private async void LoadItems()
+        private async void LoadItems(bool filterByDate = true)
         {
             // Fetch calendar items from the database
             var items = await App.Database.GetItemsAsync();
 
-            // Clear existing items and add fetched items
+            // Clear existing items
             CalendarItems.Clear();
-            foreach (var item in items)
+
+            // Filter items based on the selected date if filterByDate is true
+            if (filterByDate)
             {
-                CalendarItems.Add(item);
-                /*if (item.Date.Date == CurrentDate.Date) // Comparing only the date part
+                DateTime selectedDate = myDatePicker.Date;
+                foreach (var item in items)
+                {
+                    if (item.Date.Date == selectedDate.Date)
+                    {
+                        CalendarItems.Add(item);
+                    }
+                }
+            }
+            else // Add all items to CalendarItems if filterByDate is false
+            {
+                foreach (var item in items)
                 {
                     CalendarItems.Add(item);
-                }*/
+                }
             }
         }
 
-        private CalendarItem GetSelectedTask()
+        private CalendarItem _selectedItem;
+        public CalendarItem SelectedItem
         {
-            if (itemsList.SelectedItem is CalendarItem calendarItem)
+            get { return _selectedItem; }
+            set
             {
-                return calendarItem;
-            }
-            else
-            {
-                return null; // No task selected
+                if (_selectedItem != value)
+                {
+                    _selectedItem = value;
+                    OnPropertyChanged(nameof(SelectedItem));
+                }
             }
         }
 
@@ -79,11 +94,23 @@ namespace it3048_group3_final.Views
             await Navigation.PushAsync(new AddItemPage());
         }
 
-        private async void OnDeleteTaskClicked(object sender, EventArgs e) 
+        private async void OnDeleteTaskClicked(object sender, EventArgs e)
         {
-            CalendarItem calendarItem = GetSelectedTask();
-            await App.Database.DeleteItemAsync(calendarItem);
+            if (SelectedItem != null)
+            {
+                await App.Database.DeleteItemAsync(SelectedItem);
+                LoadItems();
+            }
+        }
+
+        private void OnFilterClicked(object sender, EventArgs e)
+        {
             LoadItems();
+        }
+
+        private void OnDisplayAllClicked(object sender, EventArgs e)
+        {
+            LoadItems(filterByDate: false); // Load all items without filtering by date
         }
 
         protected override void OnAppearing()
