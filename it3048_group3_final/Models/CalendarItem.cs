@@ -9,10 +9,9 @@ namespace it3048_group3_final.Models
     {
         [PrimaryKey, AutoIncrement]
         public int ID { get; set; }
-        public string Name { get; set; }
-        public string Notes { get; set; }
-        public bool Done { get; set; }
         public DateTime Date { get; set; }
-        
+        public string Title { get; set; }
+        public TimeSpan Time { get; set; }
+
     }
 }
