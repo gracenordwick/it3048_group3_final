@@ -1,88 +1,51 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+ ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             BackgroundColor="LightGray"
+              BackgroundColor="LightGray"
              x:Class="it3048_group3_final.Views.CalendarView">
 
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>
 
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="Auto"/>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="Auto"/>
-        </Grid.ColumnDefinitions>
 
+    <RelativeLayout>
         <!-- Month Label -->
         <DatePicker x:Name="myDatePicker" 
-                    Grid.Row="0"
-                    Grid.Column="1"
-                    FontSize="Large" 
-                    FontAttributes="Bold" 
-                    HorizontalOptions="CenterAndExpand"/>
+            FontSize="Large" 
+             FontAttributes="Bold" 
+             HorizontalOptions="CenterAndExpand" 
+             RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width}" 
+             RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0.1}"/>
 
-        <Button Text="Display All" 
-                Grid.Row="0"
-                Grid.Column="0"
-                Clicked="OnDisplayAllClicked" 
-                HorizontalOptions="Start"/>
 
-        <Button Text="Filter by Date" 
-                Grid.Row="0"
-                Grid.Column="2"
-                Clicked="OnFilterClicked" 
-                HorizontalOptions="End"/>
 
-        <!-- List of Tasks -->
-        <Frame x:Name="DailyTaskFrame" 
-               Grid.Row="1"
-               Grid.RowSpan="3"
-               Grid.ColumnSpan="3"
-               BackgroundColor="AliceBlue">
+        <Frame x:Name="DailyTaskFrame" RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=0.8}"
+      RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0.7}"
+      RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=0.1}"
+      RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0.2}"
+      BackgroundColor="White">
 
-            <ListView x:Name="itemsList" 
-                      ItemsSource="{Binding CalendarItems}" 
-                      SelectedItem="{Binding SelectedItem}" 
-                      SeparatorVisibility="None">
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <ViewCell>
-                            <StackLayout Orientation="Horizontal" Padding="10">
-                                <Label Text="{Binding Date, StringFormat='{0:MM/dd}'}" 
-                                       FontSize="14" 
-                                       HorizontalOptions="StartAndExpand"/>
-                                <Label Text="{Binding Time, StringFormat='{0:h:mm tt}'}" 
-                                       HorizontalOptions="CenterAndExpand"/>
-                                <Label Text="{Binding Title}" 
-                                       FontSize="14" 
-                                       FontAttributes="Bold" 
-                                       HorizontalOptions="EndAndExpand" 
-                                       LineBreakMode="TailTruncation"/>
-                            </StackLayout>
-                        </ViewCell>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
-        </Frame>
-        <StackLayout Grid.Row="4" 
-                     Grid.ColumnSpan="3" 
-                     Orientation="Vertical"
-                     HorizontalOptions="Center">
-            <StackLayout Orientation="Horizontal"
-                         HorizontalOptions="Center">
-                <Button Text="Add Event" 
-                        Clicked="OnAddTaskClicked"
-                        HeightRequest="40"/>
-                <Button Text="Delete Event" 
-                        Clicked="OnDeleteTaskClicked"
-                        HeightRequest="40"/>
+
+
+
+            <StackLayout>
+                <!-- List of Tasks -->
+                <ListView x:Name="taskListView">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <TextCell Text="{Binding }" />
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+
+                <!-- Entry and Button to Add Task -->
+                <StackLayout Orientation="Horizontal">
+
+                    <Button Text="Add Task" HorizontalOptions="CenterAndExpand"/>
+                </StackLayout>
             </StackLayout>
-        </StackLayout>
-        
+        </Frame>
+
+    </RelativeLayout>
 
 
-    </Grid>
+
 </ContentPage>
